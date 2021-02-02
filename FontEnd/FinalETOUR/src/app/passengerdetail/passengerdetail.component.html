@@ -1,0 +1,69 @@
+<div *ngFor="let i of Arr(num).fill(1)">
+    <h4 class="card-header">Passenger details</h4>
+    <div class="card-body">
+        <form [formGroup]="form">
+            <div class="form-group">
+                <label for="FullName">First Name</label>
+                <input type="text" formControlName="passengername" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.passengername.errors }" />
+                <div *ngIf="submitted && f.passengername.errors" class="invalid-feedback">
+                    <div *ngIf="f.passengername.errors.required">First Name is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Email">Date Of Birth</label>
+                <input type="date" id="dob" formControlName="email" name="dob" [(ngModel)]="dateofbirth" class="form-control" />
+
+               
+                </div>
+           
+      <div class="form-group">
+        <label for="userPassportNo">Passport No</label>
+        <input
+          type="text"
+          formControlName="userPassportNo"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.userPassportNo.errors }"
+        />
+        <div
+          *ngIf="submitted && f.userPassportNo.errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="f.userPassportNo.errors.required">
+            Passport No is required
+          </div>
+        </div>
+      </div>
+
+
+            <!-- <div>
+                <label>Gender:</label>
+                <select formControlName="Gender">
+                  <option>Select</option>
+                  <option *ngFor="let g of genderarr">{{ g }}</option>
+                </select>
+                <div *ngIf="Gender.invalid && (Gender.touched || submitted)">
+                  <label *ngIf="Gender.errors.required" style="color:red">Gender is required</label>
+                </div>
+              </div> -->
+              <!-- <select class="custom-select" (change)="changeGender($event)" formControlName="Gender">
+                <option value="" disabled>Gender</option>
+                <option *ngFor="let city of genderarr" [ngValue]="city">{{city}}</option>
+             </select> -->
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">email is required</div>
+                </div>
+            </div>
+            
+           
+            
+            <div class="form-group">
+                <button class="btn btn-primary" (click)=getData(form.value)>
+                    Register  
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

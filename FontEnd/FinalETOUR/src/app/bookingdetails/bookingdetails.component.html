@@ -1,0 +1,27 @@
+<h1 style="color: chocolate;">Thank You Booking.......</h1>
+
+<div *ngFor="let passenger of passengers">
+<form >
+
+<div>
+   <label>Passenger name: </label>
+   <input type="text" name="bkdate" [(ngModel)]="passenger.passengername" disabled>
+
+</div><br/><br/>
+
+<div>
+   <label>Package Id Number </label>
+   <input type="number" name="nopass" [(ngModel)]="passenger.packageid" disabled>
+
+</div><br/><br/>
+
+<div>
+   <label>Total cost of Tour: </label>
+   <input type="number" name="addcharge" *ngIf="totalCost" [(ngModel)]="totalCost" disabled>
+
+</div><br/><br/>
+
+<br/><br/>
+
+</form>
+</div>

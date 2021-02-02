@@ -1,0 +1,29 @@
+<div class="my-5" >
+    <div class="w-50 m-auto" >
+    <div class="container-fluid">
+<form  [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+        <label>emailName</label>
+       
+         <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+             <div *ngIf="f.email.errors.required">email-Name is required</div>
+         </div>
+    </div>
+    <div><br>
+        <label>password</label>
+        
+         <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+             <div *ngIf="f.password.errors.required">email-Name is required</div>
+         </div>
+         
+    </div><br>
+    <div>
+        <button><a [routerLink]="['/home']">Login</a></button>
+    </div>
+    <div>
+        <button><a [routerLink]="['/Registration']">SignUp</a></button>
+    </div>
+</form>
+</div>

@@ -1,0 +1,43 @@
+<table *ngIf="categorySub">
+    <tbody>
+        <tr>
+            <ng-container *ngFor="let category of categorySub">
+                <td><img src="{{ category.categoryimage }}" height="150" width="200" (click)=fetchSubCategory(category)/></td>
+            </ng-container>
+            </tr>
+            <tr>
+                <ng-container *ngFor="let category of categorySub">
+                    <td>{{category.categoryname}}</td>
+                    </ng-container>
+            </tr>
+    </tbody>
+</table>
+<table *ngIf="subCategory">
+    <tbody>
+        <tr>
+            <ng-container *ngFor="let category of subCategory">
+                <td><img src="{{category.categoryimage}}" height="150" width="200" (click)=fetchSubCategory(category)/></td>
+            </ng-container>
+        </tr>
+        <tr>
+            <ng-container *ngFor="let category of subCategory">
+                <td>{{category.categoryname}}</td>
+                </ng-container>
+        </tr>
+    </tbody>
+</table>
+
+<table *ngIf="subCategory2">
+    <tbody>
+        <tr>
+            <ng-container *ngFor="let category of subCategory2">
+                <td><img src="{{category.categoryimage}}" height="150" width="200" (click)=fetchFurtherSubCategory(category)/></td>
+            </ng-container>
+        </tr>
+        <tr>
+            <ng-container *ngFor="let category of subCategory2">
+                <td>{{category.categoryname}}</td>
+                </ng-container>
+        </tr>
+    </tbody>
+</table>

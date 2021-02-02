@@ -1,0 +1,68 @@
+<div>
+	<app-navbar></app-navbar>
+</div>
+<hr>
+<div class="my-5">
+    <div class="w-50 m-auto" >
+    <div class="container-fluid">
+    <table cellpadding="20" >
+        <tr>
+            <td>
+                <input type="button" value="Iternery"  class="btn btn-primary" (click)="fetchItenary()"/> 
+                <input type="button" value="Price"  class="btn btn-primary" (click)="passengerDetails()"/>
+                <input type="button" value="Date" class="btn btn-primary" (click)="fetchDate()"/>
+            </td>
+        </tr>
+    </table>
+   <b>{{packdetail.tourname}}</b>
+    <br/>
+    <img src="{{packdetail.tourimage}}" height="300" width="400"/>
+    <br/>
+   <b style="color: darkred;"> {{packdetail.description}}</b>
+</div>
+<table *ngIf="itineraries && itineraries.length!=0" cellpadding="10" >
+    <thead>
+        <b><th style="color: blue;">Day</th></b> 
+    <b> <th style="color: blue;">Description</th></b> 
+<b><th style="color: blue;">Location</th></b>
+    </thead>
+    <tbody>
+            <tr *ngFor="let itinerary of itineraries">
+                <b><td>{{itinerary.dayNo}}</td></b>
+                <b><td>{{itinerary.daywisedescription}}</td></b>
+                <b><td>{{itinerary.location}}</td></b>
+            </tr>
+    </tbody>
+</table>
+<hr>
+<div *ngIf="date">
+    <p style="color: rgb(24, 9, 82);"><b> Start Of Tour : {{date.startdate}}</b></p>
+    <p style="color: rgb(24, 9, 82)"><b>End Of Tour : {{date.enddate}}</b></p>
+</div>
+
+<div class="my-5" >
+    <div class="w-50 m-auto" >
+    <div class="container-fluid">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+ <input type="number" name="Adults" style="width: 17em" placeholder="Enter Number of Adults" formControlName="Adults" [hidden]="isDisabled"/>
+<br>
+<br>
+<input type="number" name="ChildWB" style="width: 17em"placeholder="Enter Number of child with bed" formControlName="ChildWB" [hidden]="isDisabled"/>
+<br>
+<br>
+<input type="number" name="ChildWOB" style="width: 17em" placeholder="Enter Number of child without bed" formControlName="ChildWB" [hidden]="isDisabled"/>
+<br>
+<br>
+<input type="submit" value="Calculate Price" [hidden]="isDisabled"/><br>
+
+<label *ngIf="totalCost" style="color: darkblue;">Total Cost is:</label>
+<b><p>{{totalCost}}</p></b>
+
+<label *ngIf="totalCost" style="color:darkred;">Proceed For Booking.....</label>
+<br><button>Add To Cart</button> <br>
+<button><a [routerLink]="['/passengerdetails',packdetail.packageid]" [hidden]="isDisabled">Click to provide passenger details</a><button>
+<br>
+
+<div>
+	<app-footer></app-footer>
+</div>
